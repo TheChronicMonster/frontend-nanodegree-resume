@@ -47,13 +47,15 @@ var work = {
 		{
 			"employer": "Urban Gaming Elite",
 			"title": "Executive Content Director",
+			"url" : "http://www.urbangamingelite.com",
 			"dates": "August 2014 - Present",
-			"description": "I strategize with UGE's founder, Alex, manage our freelance writers and push live content to the website.",
+			"description": "I strategize with UGE's founder, Alex Schwartz, manage our freelance writers and push live content to the website.",
 			"location" : "Madison, WI"
 		},
 		{
 			"employer": "Self Employed",
 			"title": "Freelance Writer",
+			"url" : "http://www.thechronicmonster.com",
 			"dates": "February 2013 - Present",
 			"description": "I manage and motivate myself to produce quality content for the internet for my clients.",
 			"location" : "Janesville, WI"
@@ -61,17 +63,34 @@ var work = {
 		{
 			"employer": "Self Employed",
 			"title": "Independent Courier",
+			"url" : "http://www.theChronicMonster.com",
 			"dates": "January 2012 - December 2014",
 			"description": "I delivered consumer and agricultural goods as well as bank deposits on regularly scheduled routes in the Greater Chicago Region.",
 			"location" : "Chicago, IL"
+		}],
+		display: function() {
+			for (job in work.jobs) {
+				var emp = work.jobs[job];
+				$("#workExperience").append(HTMLworkStart);
+
+				var formattedEmployer = HTMLworkEmployer.replace("%data%", emp.employer);
+				formattedEmployer = formattedEmployer.replace("%url%", emp.url);
+				var formattedTitle = HTMLworkTitle.replace("%data%", emp.title);
+				var formattedDates = HTMLworkDates.replace("%data%", emp.dates);
+				var formattedLocation = HTMLworkLocation.replace("%data%", emp.location);
+				var formattedDescription = HTMLworkDescription.replace("%data%", emp.description);
+				var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+				$(".work-entry:last").append(formattedEmployerTitle + formattedDates + formattedLocation + formattedDescription);
+			}
 		}
-	]
 }
 
 var education = {
-	"education": [
+	"schools": [
 		{
 			"name" : "Udacity",
+			"url" : "https://www.udacity.com/",
 			"degree" : "Nanodegree",
 			"major" : "Front-End Web Development",
 			"societies" : "Inaugural Cohort",
@@ -80,6 +99,7 @@ var education = {
 		},
 		{
 			"name" : "The Second City",
+			"url" : "http://www.secondcity.com/courses/chicago/general-information/",
 			"degree" : "One Year Certificate",
 			"major" : "Improvisational Acting",
 			"societies" : "The Scribes",
@@ -88,6 +108,7 @@ var education = {
 		},
 		{
 			"name" : "Texas A&M University-Texarkana",
+			"url" : "http://www.tamut.edu/",
 			"degree" : "Bachelor",
 			"major" : "Applied Arts & Sciences",
 			"societies" : "Student Leadership Development Program",
@@ -96,6 +117,7 @@ var education = {
 		},
 		{
 			"name" : "Texarkana College",
+			"url" : "https://www.texarkanacollege.edu/",
 			"degree" : "Associate",
 			"major" : "Business Marketing",
 			"societies" : "Phi Theta Kappa",
@@ -103,17 +125,16 @@ var education = {
 			"location" : "Texarkana, TX"
 		}],
 		displayEducation: function() {
-			for (school in education.education) {
-				var edu = education.education[school];
+			for (school in education.schools) {
+				var edu = education.schools[school];
 				$("#education").append(HTMLschoolStart);
 				var formattedName = HTMLschoolName.replace("%data%", edu.name);
+				formattedName = formattedName.replace("%url%", edu.url);
 				var formattedDegree = HTMLschoolDegree.replace("%data%", edu.degree);
 				var formattedMajor = HTMLschoolMajor.replace("%data%", edu.major);
 				var formattedLocation = HTMLschoolLocation.replace("%data%", edu.location);
 
-				$(".education-entry:last").append(formattedName + formattedDegree);
-				$(".education-entry:last").append(formattedMajor);
-				$(".education-entry:last").append(formattedLocation);
+				$(".education-entry:last").append(formattedName + formattedDegree + formattedMajor + formattedLocation);
 			}
 		}
 }
@@ -122,54 +143,54 @@ var projects = {
 	"projects": [
 		{
 			"title" : "Portfolio Mockup",
+			"url" : "https://github.com/TheChronicMonster/Mug-MockUp",
 			"dates" : "November 2014",
 			"description" : "I created a web friendly mockup from a pdf file. Project utilizes HTML, Bootstrap and a JavaScript Modal.",
-			"images" : ["https://github.com/TheChronicMonster/Mug-MockUp/blob/master/images/mug.png"]
+			"image" : "images/mug.png"
 		},
 		{
 			"title" : "Frogger Game Clone",
+			"url" : "https://github.com/TheChronicMonster/Frogger-Clone",
 			"dates" : "February 2015",
 			"description" : "A point for nostalgia. I recreated the classic frogger game using boys and bugs.",
-			"images" : ["https://github.com/TheChronicMonster/Frogger-Clone/blob/master/images/char-boy.png"]
+			"image" : "images/enemy-bug.png"
 		},
 		{
 			"title" : "Website Optimization",
+			"url" : "http://thechronicmonster.github.io/views/pizza.html",
 			"dates" : "March 2015",
 			"description" : "I began with a very clunky webpage and optimizated it to render within milliseconds.",
-			"images" : ["https://github.com/TheChronicMonster/website-optimization/blob/master/views/images/pizza.png"]
+			"image" : "images/pizza.png"
 		},
 		{
 			"title" : "Feed Reader Testing with JasmineJS",
+			"url" : "https://github.com/TheChronicMonster/feedReader",
 			"dates" : "April 2015",
 			"description" : "JasmineJS provides an excellent way to bug proof code with test driven development. I used the red-green testing method to ensure that every aspect of the web page worked as expected.",
-			"images" : ["http://derickbailey.com/wp-content/uploads/2014/04/jasmine.png"]
+			"image" : "images/jasmine.png"
 		},
 		{
 			"title" : "Neighborhood Map",
+			"url" : "http://thechronicmonster.github.io/maps/",
 			"dates" : "May 2015",
 			"description" : "The Neighborhood Map incorporates the Google Maps and FourSquare APIs to create a map of interesting locations in my community.",
-			"images" : ["http://cdn.thedroidguy.com/wp-content/uploads/2013/09/new-google-maps-logo.png"]
+			"image" : "images/google-maps-logo.png"
+		}],
+		display: function() {
+			for (var e in projects.projects) {
+				var projs = projects.projects[e];
+				$("#projects").append(HTMLprojectStart);
+				var formattedTitle = HTMLprojectTitle.replace("%data%", projs.title);
+				formattedTitle = formattedTitle.replace("%url%", projs.url);
+				var formattedDates = HTMLprojectDates.replace("%data%", projs.dates);
+				var formattedDescription = HTMLprojectDescription.replace("%data%", projs.description);
+				var formattedImage = HTMLprojectImage.replace("%data%", projs.image);
+				$(".project-entry:last").append(formattedTitle + formattedDates + formattedDescription + formattedImage);
+			}
 		}
-	]
-}
-
-function displayWork() {
-	for (job in work.jobs) {
-		$("#workExperience").append(HTMLworkStart);
-
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-		$(".work-entry:last").append(formattedEmployerTitle);
-		$(".work-entry:last").append(formattedDates);
-		$(".work-entry:last").append(formattedLocation);
-		$(".work-entry:last").append(formattedDescription);
-	}
 };
+
+
 
 function locationizer(work) {
 	var locArray = [];
@@ -182,7 +203,7 @@ function locationizer(work) {
 	return locArray;
 }
 
-console.log(locationizer(work));
+// console.log(locationizer(work));
 
 function internationalizeName(name) {
 	name = name.trim().split(" ");
@@ -193,36 +214,13 @@ function internationalizeName(name) {
 	return name[0] + " " + name[1];
 }
 
-$(".main").append(internationalizeButton);
-// Appends google map to resume
-$("#mapDiv").append(googleMap);
+// $(".main").append(internationalizeButton);
 
-projects.display = function() {
-	for (project in projects.projects) {
-
-		var projs = projects.projects[project];
-
-		$("#projects").append(HTMLprojectStart);
-
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projs.title);
-		$(".project-entry:last").append(formattedTitle);
-
-		var formattedDates = HTMLprojectDates.replace("%data%", projs.dates);
-		$(".project-entry:last").append(formattedDates);
-
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projs.description);
-		$(".prject-entry:last").append(formattedDescription);
-
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projs.images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}
-		}
-	}
-};
-
+// function calls
 bio.display();
-displayWork();
+work.display();
 projects.display();
 education.displayEducation();
+
+// Appends google map to resume
+$("#mapDiv").append(googleMap);
